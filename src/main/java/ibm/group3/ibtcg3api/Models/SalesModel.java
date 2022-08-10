@@ -14,6 +14,7 @@ public class SalesModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer salesId;
 
+    private Integer amount;
 
     @ManyToOne
     @JoinColumn (name = "customerId")

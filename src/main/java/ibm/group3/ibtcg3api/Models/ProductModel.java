@@ -10,11 +10,13 @@ import java.util.List;
 @Data
 @Entity(name = "products")
 public class ProductModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer productsId;
 
     private String name;
+    private String type;
     private double price;
 
     private LocalDateTime createdAt;

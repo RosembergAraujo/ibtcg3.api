@@ -1,25 +1,14 @@
 package ibm.group3.ibtcg3api.Controllers;
 
-import ibm.group3.ibtcg3api.Models.CustomerModel;
-import ibm.group3.ibtcg3api.Repositories.CustomerRepository;
-import ibm.group3.ibtcg3api.ViewModel.CustomerCreateViewModel;
-import org.springframework.beans.BeanUtils;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.Optional;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/customers")
-public class CustomerController {
-    private final CustomerRepository _customerRepository;
-
-    public CustomerController(CustomerRepository _customerRepository) {
-        this._customerRepository = _customerRepository;
-    }
+@RequestMapping("/sales")
+public class SalesController {
+    /*
+    @Autowired
+    private CustomerRepository _customerRepository;
 
     @GetMapping("/getAll")
     public ResponseEntity<Object> getAll() {
@@ -48,13 +37,13 @@ public class CustomerController {
         } else {
             _customerRepository.deleteById(req.get("id"));
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-                public final Object message = "Customer deleted!";
+            public final Object message = "User deleted!";
             });
         }
     }
 
     @PostMapping("/createCustomer")
-    public ResponseEntity<Object> createCustomer(@RequestBody CustomerCreateViewModel customer) {
+    public ResponseEntity<Object> createStudent(@RequestBody CustomerCreateViewModel customer) {
 
         CustomerModel customerModel = new CustomerModel();
         BeanUtils.copyProperties(customer, customerModel);
@@ -76,7 +65,7 @@ public class CustomerController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Object() {
                 public final Object message = "Customer not found!";
             });
-        } else {
+        }else {
             CustomerModel customer = new CustomerModel();
             BeanUtils.copyProperties(customerModel.get(), customer);
 
@@ -92,5 +81,7 @@ public class CustomerController {
         }
 
     }
+
+    */
 
 }
