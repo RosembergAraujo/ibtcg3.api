@@ -16,7 +16,7 @@ public class ProductModel {
     private Integer productsId;
 
     private String name;
-    private String type;
+    private boolean isGeneric;
     private double price;
 
     private LocalDateTime createdAt;

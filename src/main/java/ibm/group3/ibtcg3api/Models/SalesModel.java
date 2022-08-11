@@ -24,6 +24,10 @@ public class SalesModel {
     @JoinColumn (name = "productsId")
     private ProductModel product;
 
+    @ManyToOne
+    @JoinColumn (name = "orderId")
+    private CustomerModel order;
+
     private LocalDateTime createdAt;
 
 

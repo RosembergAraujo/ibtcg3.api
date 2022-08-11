@@ -1,41 +1,52 @@
 package ibm.group3.ibtcg3api.Controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import ibm.group3.ibtcg3api.Models.SalesModel;
+import ibm.group3.ibtcg3api.Repositories.SalesRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/sales")
 public class SalesController {
+
     /*
-    @Autowired
-    private CustomerRepository _customerRepository;
+    private final SalesRepository _salesRepository;
+
+    public SalesController(SalesRepository _salesRepository) {
+        this._salesRepository = _salesRepository;
+    }
 
     @GetMapping("/getAll")
     public ResponseEntity<Object> getAll() {
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-            public final Object message = _customerRepository.findAll();
+            public final Object message = _salesRepository.findAll();
         });
     }
 
     @PostMapping("/findById")
     public ResponseEntity<Object> findById(@RequestBody Map<String, Integer> req) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-            public final Object message = _customerRepository.findById(req.get("id"));
+            public final Object message = _salesRepository.findById(req.get("id"));
         });
     }
 
     @DeleteMapping("/deleteById")
     public ResponseEntity<Object> deleteById(@RequestBody Map<String, Integer> req) {
 
-        Optional<CustomerModel> customer = _customerRepository.findById(req.get("id"));
+        Optional<SalesModel> sale = _salesRepository.findById(req.get("id"));
 
-        if (customer.isEmpty()) {
+        if (sale.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Object() {
                 public final Object message = "Customer not found!";
             });
         } else {
-            _customerRepository.deleteById(req.get("id"));
+            _salesRepository.deleteById(req.get("id"));
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
             public final Object message = "User deleted!";
             });
@@ -43,15 +54,15 @@ public class SalesController {
     }
 
     @PostMapping("/createCustomer")
-    public ResponseEntity<Object> createStudent(@RequestBody CustomerCreateViewModel customer) {
+    public ResponseEntity<Object> createStudent(@RequestBody CustomerCreateViewModel sale) {
 
-        CustomerModel customerModel = new CustomerModel();
-        BeanUtils.copyProperties(customer, customerModel);
+        SalesModel saleModel = new SalesModel();
+        BeanUtils.copyProperties(sale, saleModel);
 
-        customerModel.setCreatedAt(LocalDateTime.now());
+        saleModel.setCreatedAt(LocalDateTime.now());
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-            public final Object message = _customerRepository.save(customerModel);
+            public final Object message = _salesRepository.save(saleModel);
         });
     }
 
@@ -59,29 +70,31 @@ public class SalesController {
     public ResponseEntity<Object> updateCustomer(@RequestBody Map<String, Object> req) {
 
         System.out.println(req);
-        Optional<CustomerModel> customerModel = _customerRepository.findById((Integer) req.get("id"));
+        Optional<SalesModel> saleModel = _salesRepository.findById((Integer) req.get("id"));
 
-        if (customerModel.isEmpty()) {
+        if (saleModel.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Object() {
                 public final Object message = "Customer not found!";
             });
         }else {
-            CustomerModel customer = new CustomerModel();
-            BeanUtils.copyProperties(customerModel.get(), customer);
+            SalesModel sale = new SalesModel();
+            BeanUtils.copyProperties(saleModel.get(), sale);
 
-            if (req.get("name") != null) customer.setName((String) req.get("name"));
-            if (req.get("email") != null) customer.setEmail((String) req.get("email"));
-            if (req.get("cpf") != null) customer.setCpf((String) req.get("cpf"));
+            if (req.get("name") != null) sale.setName((String) req.get("name"));
+            if (req.get("email") != null) sale.setEmail((String) req.get("email"));
+            if (req.get("cpf") != null) sale.setCpf((String) req.get("cpf"));
 
-            _customerRepository.save(customer);
+            _salesRepository.save(sale);
 
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-                public final Object message = customer;
+                public final Object message = sale;
             });
         }
 
     }
 
     */
+
+
 
 }

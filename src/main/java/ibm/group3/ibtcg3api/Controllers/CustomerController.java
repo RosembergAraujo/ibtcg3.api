@@ -47,8 +47,10 @@ public class CustomerController {
             });
         } else {
             _customerRepository.deleteById(req.get("id"));
+
+
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-                public final Object message = "Customer deleted!";
+                public final Object message = "Customer Deleted!";
             });
         }
     }

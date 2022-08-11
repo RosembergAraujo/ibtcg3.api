@@ -83,7 +83,7 @@ public class ProductController {
             BeanUtils.copyProperties(productModel.get(), product);
 
             if (req.get("name") != null) product.setName((String) req.get("name"));
-            if (req.get("type") != null) product.setType((String) req.get("type"));
+            if (req.get("isGeneric") != null) product.setGeneric((boolean) req.get("isGeneric"));
             if (req.get("price") != null) product.setPrice((double) req.get("price"));
 
             _productRepository.save(product);
