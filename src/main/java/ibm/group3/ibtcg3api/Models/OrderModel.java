@@ -14,8 +14,10 @@ public class OrderModel {
     private Integer orderId;
 
     @ManyToOne
-    @JoinColumn (name = "customerId")
+    @JoinColumn(name = "customerId")
     private CustomerModel customer;
+
+    private double total;
 
 //    @OneToMany
 //    @JoinColumn (name = "order_id")

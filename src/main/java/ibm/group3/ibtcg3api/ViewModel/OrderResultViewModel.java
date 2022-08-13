@@ -12,6 +12,8 @@ public class OrderResultViewModel {
 
     private CustomerModel customer;
 
+    private double total;
+
     private List<SaleResultInOrderViewModel> sales;
 
 }

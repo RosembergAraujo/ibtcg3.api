@@ -110,7 +110,7 @@ public class OrderController {
             var product = _productRepository.findById(saleView.getProductId());
             if (product.isPresent()) { //Stock Control
 
-                if(product.get().getAmountInStock() < 0)
+                if(product.get().getAmountInStock() <= 0)
                 {
                     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Object() {
                         public final Object message = "Product ("+product.get().getName()+") sold out";
@@ -123,8 +123,8 @@ public class OrderController {
 
                 }else { //All right
                     product.get().setAmountInStock(product.get().getAmountInStock() - saleModelTemp.getAmount());
+                    _productRepository.save(product.get());
                     saleModelTemp.setProduct(product.get());
-                    //Tirar de fato do banco
                 }
             } else {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Object() {
@@ -139,18 +139,22 @@ public class OrderController {
         var salesFinal = _saleRepository.saveAll(sales);
 
         var salesResult = new ArrayList<SaleResultInOrderViewModel>();
-
+        var orderResult = new OrderResultViewModel();
+        orderResult.setTotal(0);
         for (var sale: salesFinal) {
             var salesResultTmp = new SaleResultInOrderViewModel();
             BeanUtils.copyProperties(sale, salesResultTmp);
 
+            var price = sale.getProduct().getPrice() * sale.getAmount();
+            if((sale.getProduct().isGeneric())) price *= 0.8; //Take off 20%
+            orderResult.setTotal(order.getTotal() + price);
+
             salesResult.add(salesResultTmp);
         }
 
-        var orderResult = new OrderResultViewModel();
-
         orderResult.setSales(salesResult);
         orderResult.setCustomer(order.getCustomer());
+        _orderRepository.save(order);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(new Object() {
             public final Object order = orderResult;
