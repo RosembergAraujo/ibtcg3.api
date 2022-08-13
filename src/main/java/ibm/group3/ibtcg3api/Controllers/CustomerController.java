@@ -24,15 +24,15 @@ public class CustomerController {
     @GetMapping("/getAll")
     public ResponseEntity<Object> getAll() {
 
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-            public final Object message = _customerRepository.findAll();
+        return ResponseEntity.status(HttpStatus.CREATED).body(new Object() {
+            public final Object customers = _customerRepository.findAll();
         });
     }
 
     @PostMapping("/findById")
     public ResponseEntity<Object> findById(@RequestBody Map<String, Integer> req) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-            public final Object message = _customerRepository.findById(req.get("id"));
+            public final Object customer = _customerRepository.findById(req.get("id"));
         });
     }
 
@@ -64,7 +64,7 @@ public class CustomerController {
         customerModel.setCreatedAt(LocalDateTime.now());
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-            public final Object message = _customerRepository.save(customerModel);
+            public final Object customer = _customerRepository.save(customerModel);
         });
     }
 
@@ -89,7 +89,7 @@ public class CustomerController {
             _customerRepository.save(customer);
 
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-                public final Object message = customer;
+                public final Object updatedCustomer = customer;
             });
         }
 

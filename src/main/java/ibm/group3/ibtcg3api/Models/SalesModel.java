@@ -12,7 +12,7 @@ import java.util.List;
 public class SalesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer salesId;
+    private Integer saleId;
 
     private Integer amount;
 
@@ -26,9 +26,8 @@ public class SalesModel {
 
     @ManyToOne
     @JoinColumn (name = "orderId")
-    private CustomerModel order;
+    private OrderModel order;
 
     private LocalDateTime createdAt;
-
 
 }

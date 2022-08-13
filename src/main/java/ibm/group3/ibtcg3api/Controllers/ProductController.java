@@ -3,6 +3,7 @@ package ibm.group3.ibtcg3api.Controllers;
 import ibm.group3.ibtcg3api.Models.ProductModel;
 import ibm.group3.ibtcg3api.Repositories.ProductRepository;
 import ibm.group3.ibtcg3api.ViewModel.CustomerCreateViewModel;
+import ibm.group3.ibtcg3api.ViewModel.ProductCreateViewModel;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class ProductController {
     public ResponseEntity<Object> getAll() {
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-            public final Object message = _productRepository.findAll();
+            public final Object products = _productRepository.findAll();
         });
     }
 
@@ -57,14 +58,14 @@ public class ProductController {
     }
 
     @PostMapping("/createProduct")
-    public ResponseEntity<Object> createProduct(@RequestBody CustomerCreateViewModel product) {
+    public ResponseEntity<Object> createProduct(@RequestBody ProductCreateViewModel product) {
 
         ProductModel productModel = new ProductModel();
         BeanUtils.copyProperties(product, productModel);
 
         productModel.setCreatedAt(LocalDateTime.now());
 
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
+        return ResponseEntity.status(HttpStatus.CREATED).body(new Object() {
             public final Object message = _productRepository.save(productModel);
         });
     }
@@ -85,6 +86,7 @@ public class ProductController {
             if (req.get("name") != null) product.setName((String) req.get("name"));
             if (req.get("isGeneric") != null) product.setGeneric((boolean) req.get("isGeneric"));
             if (req.get("price") != null) product.setPrice((double) req.get("price"));
+            if (req.get("amountInStock") != null) product.setPrice((double) req.get("amountInStock"));
 
             _productRepository.save(product);
 

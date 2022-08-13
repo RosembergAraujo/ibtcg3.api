@@ -13,17 +13,18 @@ public class ProductModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer productsId;
+    private Integer productId;
 
     private String name;
     private boolean isGeneric;
     private double price;
+    private Integer amountInStock;
 
     private LocalDateTime createdAt;
 
-    @OneToMany
-    @JoinColumn (name = "salesId")
-    private List<SalesModel> sales;
+//    @OneToMany
+//    @JoinColumn (name = "product_id")
+//    private List<SalesModel> sales;
 
 
 }

@@ -20,8 +20,8 @@ public class CustomerModel {
 
     private LocalDateTime createdAt;
 
-    @OneToMany
-    @JoinColumn (name = "salesId")
-    private List<SalesModel> sales;
+//    @OneToMany
+//    @JoinColumn (name = "customer_id")
+//    private List<SalesModel> sales;
 
 }

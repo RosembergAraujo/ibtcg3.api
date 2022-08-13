@@ -7,7 +7,8 @@ import lombok.Data;
 public class ProductCreateViewModel {
 
     private String name;
-
     private double price;
+    private boolean isGeneric;
+    private Integer amountInStock;
 
 }

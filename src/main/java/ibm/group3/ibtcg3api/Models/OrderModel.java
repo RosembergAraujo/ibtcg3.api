@@ -11,15 +11,15 @@ import java.util.List;
 public class OrderModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ordersId;
+    private Integer orderId;
 
     @ManyToOne
     @JoinColumn (name = "customerId")
     private CustomerModel customer;
 
-    @OneToMany
-    @JoinColumn (name = "salesId")
-    private List<SalesModel> sales;
+//    @OneToMany
+//    @JoinColumn (name = "order_id")
+//    private List<SalesModel> sales;
 
     private LocalDateTime createdAt;
 
