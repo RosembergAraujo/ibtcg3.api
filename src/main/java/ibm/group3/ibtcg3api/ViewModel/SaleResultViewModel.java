@@ -23,6 +23,4 @@ public class SaleResultViewModel {
 
     private OrderModel order;
 
-    private LocalDateTime createdAt;
-
 }

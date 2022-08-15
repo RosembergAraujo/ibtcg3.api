@@ -17,6 +17,4 @@ public class SaleResultInOrderViewModel {
 
     private ProductModel product;
 
-    private LocalDateTime createdAt;
-
 }

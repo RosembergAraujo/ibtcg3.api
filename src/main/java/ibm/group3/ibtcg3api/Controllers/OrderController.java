@@ -30,7 +30,6 @@ public class OrderController {
     private final OrderRepository _orderRepository;
     private final CustomerRepository _customerRepository;
     private final ProductRepository _productRepository;
-
     private final SaleRepository _saleRepository;
 
     public OrderController(
@@ -47,7 +46,6 @@ public class OrderController {
 
     @GetMapping("/getAll")
     public ResponseEntity<Object> getAll() {
-
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
             public final Object message = _orderRepository.findAll();
         });
