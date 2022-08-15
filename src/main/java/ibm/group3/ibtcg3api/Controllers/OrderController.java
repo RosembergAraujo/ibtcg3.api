@@ -146,7 +146,7 @@ public class OrderController {
             BeanUtils.copyProperties(sale, salesResultTmp);
 
             var price = sale.getProduct().getPrice() * sale.getAmount();
-            if((sale.getProduct().isGeneric())) price *= 0.8; //Take off 20%
+            if(sale.getProduct().isGeneric()) price *= 0.8; //Take off 20%
             orderResult.setTotal(order.getTotal() + price);
 
             salesResult.add(salesResultTmp);
@@ -154,6 +154,7 @@ public class OrderController {
 
         orderResult.setSales(salesResult);
         orderResult.setCustomer(order.getCustomer());
+        order.setTotal(orderResult.getTotal());
         _orderRepository.save(order);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(new Object() {
