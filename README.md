@@ -6,7 +6,7 @@ IBM challenge to create a e-commerce API, in this case, using java spring.
 
 ## General Documentation 
 
-[Documentation](https://github.com/RosembergAraujo/ibtcg3.api/blob/main/docs/Documentac%CC%A7a%CC%83o%20Desafio%20IBM_Grupo3.%20OK%20(1).pdf)
+[Documentation](https://github.com/RosembergAraujo/ibtcg3.api/blob/main/docs/Documentation%20-%20IBM_G3_Final%20.pdf)
 
 ## Endpoints documentation
 
