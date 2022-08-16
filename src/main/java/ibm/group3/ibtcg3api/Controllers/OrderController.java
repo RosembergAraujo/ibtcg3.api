@@ -159,31 +159,5 @@ public class OrderController {
             public final Object order = orderResult;
         });
     }
-//
-//    @PutMapping("/updateCustomer")
-//    public ResponseEntity<Object> updateCustomer(@RequestBody Map<String, Object> req) {
-//
-//        System.out.println(req);
-//        Optional<OrderModel> orderModel = _orderRepository.findById((Integer) req.get("id"));
-//
-//        if (orderModel.isEmpty()) {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Object() {
-//                public final Object message = "Customer not found!";
-//            });
-//        }else {
-//            OrderModel order = new OrderModel();
-//            BeanUtils.copyProperties(orderModel.get(), order);
-//
-//            if (req.get("name") != null) order.setName((String) req.get("name"));
-//            if (req.get("email") != null) order.setEmail((String) req.get("email"));
-//            if (req.get("cpf") != null) order.setCpf((String) req.get("cpf"));
-//
-//            _orderRepository.save(order);
-//
-//            return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-//                public final Object message = order;
-//            });
-//        }
-//    }
 
 }
