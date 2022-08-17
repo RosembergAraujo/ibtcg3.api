@@ -6,7 +6,7 @@ IBM challenge to create a e-commerce API, in this case, using java spring.
 
 
 
-## Rules, deliverables and challenge evaluation criteria.
+## Challenge rules, requirements, and evaluation criteria.
 
 [Documentation](https://docs.google.com/document/d/1yE75ORjLgdB_J05J6JqIPxzF6czfLdSP/edit#)
 
