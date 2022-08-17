@@ -2,7 +2,6 @@ package ibm.group3.ibtcg3api.Controllers;
 
 import ibm.group3.ibtcg3api.Models.ProductModel;
 import ibm.group3.ibtcg3api.Repositories.ProductRepository;
-import ibm.group3.ibtcg3api.ViewModel.CustomerCreateViewModel;
 import ibm.group3.ibtcg3api.ViewModel.ProductCreateViewModel;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
@@ -58,12 +57,25 @@ public class ProductController {
     }
 
     @PostMapping("/createProduct")
-    public ResponseEntity<Object> createProduct(@RequestBody ProductCreateViewModel product) {
+    public ResponseEntity<Object> createProduct(@RequestBody Map<String, Object> req) {
+
 
         ProductModel productModel = new ProductModel();
-        BeanUtils.copyProperties(product, productModel);
 
-        productModel.setCreatedAt(LocalDateTime.now());
+        try {
+            productModel.setName((String) req.get("name"));
+            productModel.setGeneric((Boolean) req.get("isGeneric"));
+            productModel.setPrice((Double) req.get("price"));
+            productModel.setAmountInStock((Integer) req.get("amountInStock"));
+            productModel.setCreatedAt(LocalDateTime.now());
+        }catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Object() {
+                public final Object message = "Some field has wrong type! (Ex: \"price\": 5 is wrong, correct type is \"price\": 5.0)";
+            });
+        }
+
+
 
         return ResponseEntity.status(HttpStatus.CREATED).body(new Object() {
             public final Object message = _productRepository.save(productModel);

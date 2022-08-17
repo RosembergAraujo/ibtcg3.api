@@ -1,13 +1,11 @@
 package ibm.group3.ibtcg3api.Controllers;
 
 import ibm.group3.ibtcg3api.Models.CustomerModel;
-import ibm.group3.ibtcg3api.Models.OrderModel;
 import ibm.group3.ibtcg3api.Repositories.CustomerRepository;
 import ibm.group3.ibtcg3api.Repositories.OrderRepository;
 import ibm.group3.ibtcg3api.Repositories.SaleRepository;
 import ibm.group3.ibtcg3api.ViewModel.CustomerCreateViewModel;
 import ibm.group3.ibtcg3api.ViewModel.OrderResultViewInCustomerModel;
-import ibm.group3.ibtcg3api.ViewModel.OrderResultViewModel;
 import ibm.group3.ibtcg3api.ViewModel.SaleResultInOrderViewModel;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
@@ -15,7 +13,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/customers")

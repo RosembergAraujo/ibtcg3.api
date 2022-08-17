@@ -1,8 +1,6 @@
 package ibm.group3.ibtcg3api.Controllers;
 
-import ibm.group3.ibtcg3api.Models.CustomerModel;
 import ibm.group3.ibtcg3api.Models.OrderModel;
-import ibm.group3.ibtcg3api.Models.ProductModel;
 import ibm.group3.ibtcg3api.Models.SalesModel;
 import ibm.group3.ibtcg3api.Repositories.CustomerRepository;
 import ibm.group3.ibtcg3api.Repositories.OrderRepository;
@@ -145,7 +143,7 @@ public class OrderController {
 
             var price = sale.getProduct().getPrice() * sale.getAmount();
             if(sale.getProduct().isGeneric()) price *= 0.8; //Take off 20%
-            orderResult.setTotal(order.getTotal() + price);
+            orderResult.setTotal(orderResult.getTotal() + price);
 
             salesResult.add(salesResultTmp);
         }

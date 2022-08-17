@@ -19,10 +19,6 @@ public class OrderModel {
 
     private double total;
 
-//    @OneToMany
-//    @JoinColumn (name = "order_id")
-//    private List<SalesModel> sales;
-//teste
     private LocalDateTime createdAt;
 
 
