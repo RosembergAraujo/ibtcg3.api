@@ -1,28 +1,30 @@
 package ibm.group3.ibtcg3api.Controllers;
 
-import ibm.group3.ibtcg3api.Models.ProductModel;
-import ibm.group3.ibtcg3api.Repositories.ProductRepository;
-import ibm.group3.ibtcg3api.ViewModel.ProductCreateViewModel;
-import org.springframework.beans.BeanUtils;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.Optional;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/")
 public class DefaultRouteController {
 
 
-    @GetMapping("/")
-    public ResponseEntity<Object> getAll() {
+//    @GetMapping("/")
+//    public ModelAndView getAll() {
+//        return new ModelAndView("redirect:" + "https://google.com");
+//    }
 
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Object() {
-            public final Object message = "To see the code https://github.com/RosembergAraujo/ibtcg3.api";
-        });
+//    @GetMapping("/")
+//    public ResponseEntity<Object> getAll() {
+//        return ResponseEntity.status(HttpStatus.CREATED).body(new Object() {
+//            public final Object message = "message";
+//        });
+//    }
+
+    @GetMapping("/")
+    public ModelAndView welcome() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index.html");
+        return modelAndView;
     }
 
 }
