@@ -4,6 +4,12 @@ IBM challenge to create a e-commerce API, in this case, using java spring.
 
 <img src="https://i.imgur.com/zGkyHi7.png">
 
+
+
+## Challenge rules, requirements, and evaluation criteria.
+
+[Documentation](https://docs.google.com/document/d/1yE75ORjLgdB_J05J6JqIPxzF6czfLdSP/edit#)
+
 ## General Documentation 
 
 [Documentation](https://github.com/RosembergAraujo/ibtcg3.api/blob/main/docs/Documentation_IBM_G3_.pdf)
