@@ -12,3 +12,7 @@ IBM challenge to create a e-commerce API, in this case, using java spring.
 
 [Endpoints](https://rosembergaraujo.github.io/ibtcg3.api/)
 
+## API Hosted Link
+
+https://ibtcg3-api.herokuapp.com/
+
